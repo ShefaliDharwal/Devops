@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskweb
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      type: backend
+  template:
+    metadata:
+      labels:
+        type: backend
+    spec:
+      containers:
+        - name: container1
+          image: shefalidharwal17/flaskweb
+          ports:
+            - containerPort: 4000
+              protocol: TCP
